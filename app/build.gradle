@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
 
 android {
     compileSdkVersion 28
@@ -23,10 +23,32 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    api "com.google.dagger:dagger:$project.daggerVersion"
+    api "com.android.support:support-v4:$project.supportVersion"
+    kapt "com.google.dagger:dagger-android-processor:$project.daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$project.daggerVersion"
+
+    api "com.android.support:appcompat-v7:$project.supportVersion"
+    api "com.android.support:design:$project.supportVersion"
+    api "com.google.code.gson:gson:$project.gsonVersion"
+    api "com.squareup.retrofit2:retrofit:$project.retrofitVersion"
+    api "com.squareup.retrofit2:converter-gson:$project.retrofitVersion"
+    api "com.squareup.retrofit2:adapter-rxjava2:$project.retrofitVersion"
+    api "com.squareup.okhttp3:okhttp:$project.okHttpVersion"
+    api "com.squareup.okhttp3:logging-interceptor:$project.okHttpVersion"
+    api "io.reactivex.rxjava2:rxandroid:$project.rxAndroid"
+
+    api "com.google.dagger:dagger:$project.daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$project.daggerVersion"
+
+    kapt "com.google.dagger:dagger-compiler:$project.daggerVersion"
+
+    // butter knife
+    api 'com.jakewharton:butterknife:8.8.1'
+    kapt 'com.jakewharton:butterknife-compiler:8.8.1'
+
+
 }
