@@ -21,6 +21,8 @@ public class MyApplication extends Application {
             .netModule(new NetModule()).build();
         component.injectApp(this);
 
+
+
     }
 
     public AppComponent getAppComponent(Context context) {
