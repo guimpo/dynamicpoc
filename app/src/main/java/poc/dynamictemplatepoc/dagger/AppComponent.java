@@ -5,6 +5,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 import poc.dynamictemplatepoc.MyApplication;
 import poc.dynamictemplatepoc.views.cells.CellsActivity;
+import poc.dynamictemplatepoc.views.funds.FundsActivity;
 
 
 @PerApplication
@@ -17,4 +18,5 @@ public interface AppComponent {
 
     //inject Activities
     void injectActivity(CellsActivity mainActivity);
+    void injectActivity(FundsActivity fundsActivity);
 }
